@@ -2872,7 +2872,7 @@ Remember: Measure first, optimize based on data, and test thoroughly. Performanc
   {
     id: '11',
     title: 'SaaS Pricing Strategies: How to Price Your Software Product',
-    slug: 'saas-pricing-strategies-how-price-software-product',
+    slug: 'saas-pricing-strategies-complete-guide-2025',
     excerpt: 'Master SaaS pricing strategies to maximize revenue. Learn about pricing models, psychological pricing, value-based pricing, and optimization techniques.',
     content: `# SaaS Pricing Strategies: How to Price Your Software Product
 
