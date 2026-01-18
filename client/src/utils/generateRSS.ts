@@ -1,7 +1,6 @@
 import { blogPosts } from '@/data/blogPosts';
 
-export function generateRSSFeed(): string {
-  const baseUrl = 'https://anees0005.github.io/muhammadanees';
+export function generateRSSFeed(baseUrl: string = 'https://muhammadanees.vercel.app'): string {
   const currentDate = new Date().toUTCString();
   
   const items = blogPosts

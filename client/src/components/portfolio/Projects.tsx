@@ -303,8 +303,10 @@ export default function Projects() {
             </button>
             <img 
               src={selectedImage} 
-              alt="SEO Work"
+              alt="Project screenshot - SEO work portfolio"
               className="w-full h-auto rounded-lg border border-cyan-500/20"
+              loading="eager"
+              decoding="async"
             />
           </div>
         </div>

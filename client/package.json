@@ -11,7 +11,10 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "generate:rss": "node scripts/generate-rss.js"
+    "generate:rss": "node scripts/generate-rss.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:seo": "node scripts/build-seo.js",
+    "postbuild": "npm run generate:seo"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.0.6",

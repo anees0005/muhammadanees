@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     
+    <!-- Performance: Preconnect to External Domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
+    
+    <!-- Google Search Console Verification (Replace with your verification code) -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" /> -->
+    
     <!-- Primary Meta Tags -->
     <title>Muhammad Anees - SaaS Developer | Full-Stack Developer | AI Automation Expert</title>
     <meta name="title" content="Muhammad Anees - SaaS Developer | Full-Stack Developer | AI Automation Expert" />
@@ -35,13 +45,17 @@
     <link rel="canonical" href="https://anees0005.github.io/muhammadanees/" />
     <link rel="alternate" type="application/rss+xml" title="Muhammad Anees Blog RSS Feed" href="https://anees0005.github.io/muhammadanees/feed.xml" />
     
-    <!-- Google Analytics 4 (Add your GA4 Measurement ID) -->
+    <!-- Google Analytics 4 -->
+    <!-- Replace G-XXXXXXXXXX with your actual GA4 Measurement ID from https://analytics.google.com -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-XXXXXXXXXX', {
+        'page_title': document.title,
+        'page_location': window.location.href
+      });
     </script> -->
     
     <!-- Favicon - Text Only Branding -->

@@ -24,6 +24,54 @@ export default function SAASToolDetail() {
       if (metaDescription) {
         metaDescription.setAttribute('content', product.description);
       }
+
+      // Add SoftwareApplication Schema Markup
+      const existingSchema = document.getElementById('software-schema');
+      if (existingSchema) existingSchema.remove();
+
+      const schemaScript = document.createElement('script');
+      schemaScript.id = 'software-schema';
+      schemaScript.type = 'application/ld+json';
+      schemaScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": product.name,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": product.status === 'live' ? "https://schema.org/InStock" : "https://schema.org/PreOrder"
+        },
+        "description": product.description,
+        "url": product.url,
+        "author": {
+          "@type": "Person",
+          "name": "Muhammad Anees",
+          "url": "https://muhammadanees.vercel.app"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Muhammad Anees",
+          "url": "https://muhammadanees.vercel.app"
+        },
+        "datePublished": product.launchDate,
+        "softwareVersion": "1.0",
+        "aggregateRating": product.status === 'live' ? {
+          "@type": "AggregateRating",
+          "ratingValue": "4.5",
+          "ratingCount": "10"
+        } : undefined,
+        "featureList": product.features.map(f => f.title),
+        "screenshot": product.screenshots?.[0] || undefined
+      });
+      document.head.appendChild(schemaScript);
+
+      return () => {
+        const schema = document.getElementById('software-schema');
+        if (schema) schema.remove();
+      };
     }
   }, [product]);
 

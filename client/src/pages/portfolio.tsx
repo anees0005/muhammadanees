@@ -18,6 +18,77 @@ import EmailCapturePopup from "@/components/ui/EmailCapturePopup";
 
 export default function Portfolio() {
   useEffect(() => {
+    // Add Service Schema Markup for services offered
+    const existingSchema = document.getElementById('service-schema');
+    if (existingSchema) existingSchema.remove();
+
+    const services = [
+      {
+        "@type": "Service",
+        "serviceType": "Website Development",
+        "provider": {
+          "@type": "Person",
+          "name": "Muhammad Anees"
+        },
+        "areaServed": "Worldwide",
+        "description": "Professional website development including WordPress, React, Next.js, and e-commerce solutions"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "SaaS Development",
+        "provider": {
+          "@type": "Person",
+          "name": "Muhammad Anees"
+        },
+        "areaServed": "Worldwide",
+        "description": "Custom SaaS product development from concept to deployment"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "AI Automation",
+        "provider": {
+          "@type": "Person",
+          "name": "Muhammad Anees"
+        },
+        "areaServed": "Worldwide",
+        "description": "AI chatbot development, workflow automation, and business process automation"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Digital Marketing",
+        "provider": {
+          "@type": "Person",
+          "name": "Muhammad Anees"
+        },
+        "areaServed": "Worldwide",
+        "description": "SEO optimization, social media marketing, and paid advertising campaigns"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Game Development",
+        "provider": {
+          "@type": "Person",
+          "name": "Muhammad Anees"
+        },
+        "areaServed": "Worldwide",
+        "description": "Unity and web-based game development"
+      }
+    ];
+
+    const schemaScript = document.createElement('script');
+    schemaScript.id = 'service-schema';
+    schemaScript.type = 'application/ld+json';
+    schemaScript.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": service
+      }))
+    });
+    document.head.appendChild(schemaScript);
+
     // Intersection Observer for section animations
     const observerOptions = {
       threshold: 0.1,
@@ -38,6 +109,8 @@ export default function Portfolio() {
 
     return () => {
       observer.disconnect();
+      const schema = document.getElementById('service-schema');
+      if (schema) schema.remove();
     };
   }, []);
 

@@ -177,8 +177,22 @@ export default function BlogDetail() {
     );
   }
 
-  const relatedPosts = getRelatedPosts(post);
+  const relatedPosts = getRelatedPosts(post, 6);
   const articleSeries = post ? getSeriesForPost(post, blogPosts) : null;
+  
+  // Get more posts from same category
+  const categoryPosts = post ? blogPosts
+    .filter(p => p.id !== post.id && p.category === post.category)
+    .slice(0, 3) : [];
+  
+  // Get SaaS products related to post tags
+  const saasProducts = getAllSaaSProducts();
+  const relatedSaaS = post ? saasProducts.filter(product => 
+    post.tags.some(tag => 
+      product.name.toLowerCase().includes(tag.toLowerCase()) ||
+      product.description.toLowerCase().includes(tag.toLowerCase())
+    )
+  ).slice(0, 2) : [];
 
   return (
     <div className="relative bg-[hsl(var(--dark-bg))] text-white min-h-screen">
@@ -214,9 +228,14 @@ export default function BlogDetail() {
                 Published: {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </span>
               {post.lastUpdated && post.lastUpdated !== post.date && (
-                <span className="flex items-center gap-1 text-green-400">
+                <span className="flex items-center gap-1 text-green-400 bg-green-500/10 px-2 py-1 rounded-full border border-green-500/30">
                   <Calendar size={14} />
                   Updated: {new Date(post.lastUpdated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </span>
+              )}
+              {(!post.lastUpdated || post.lastUpdated === post.date) && (
+                <span className="flex items-center gap-1 text-gray-500 text-xs">
+                  (Content is current and up-to-date)
                 </span>
               )}
               <span className="flex items-center gap-1">
@@ -320,8 +339,9 @@ export default function BlogDetail() {
                   img: ({ src, alt, ...props }: any) => (
                     <img
                       src={src}
-                      alt={alt || post.title}
+                      alt={alt || `${post.title} - Image`}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-auto rounded-lg my-6 object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -531,6 +551,75 @@ export default function BlogDetail() {
               </div>
             )}
 
+            {/* Related SaaS Products */}
+            {relatedSaaS.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                  <Layers size={20} className="text-cyan-400" />
+                  Related SaaS Products
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {relatedSaaS.map(product => (
+                    <Link key={product.id} href={`/saas-tools/${product.slug}`}>
+                      <article className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-cyan-500/50 transition-all cursor-pointer h-full">
+                        <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                          <span className="px-2 py-1 bg-purple-500/10 text-purple-400 rounded text-xs font-medium">
+                            SaaS Product
+                          </span>
+                          <span className={`px-2 py-1 rounded text-xs font-medium ${
+                            product.status === 'live' 
+                              ? 'bg-green-500/10 text-green-400'
+                              : 'bg-yellow-500/10 text-yellow-400'
+                          }`}>
+                            {product.status === 'live' ? '● Live' : 'Beta'}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">
+                          {product.name}
+                        </h3>
+                        <p className="text-gray-400 text-sm line-clamp-2">
+                          {product.description}
+                        </p>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* More from this Category */}
+            {categoryPosts.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                  <Tag size={20} className="text-cyan-400" />
+                  More from {post.category}
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {categoryPosts.map(categoryPost => (
+                    <Link key={categoryPost.id} href={`/blog/${categoryPost.slug}`}>
+                      <article className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-cyan-500/50 transition-all cursor-pointer h-full">
+                        <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                          <span className="px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded text-xs font-medium">
+                            {categoryPost.category}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock size={14} />
+                            {categoryPost.readTime} min
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">
+                          {categoryPost.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm line-clamp-2">
+                          {categoryPost.excerpt}
+                        </p>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
               <div>
@@ -539,7 +628,7 @@ export default function BlogDetail() {
                   Related Articles
                 </h3>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {relatedPosts.map(relatedPost => (
+                  {relatedPosts.slice(0, 3).map(relatedPost => (
                     <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
                       <article className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-cyan-500/50 transition-all cursor-pointer h-full">
                         <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
@@ -563,6 +652,16 @@ export default function BlogDetail() {
                 </div>
               </div>
             )}
+
+            {/* Category Link */}
+            <div className="mt-8 text-center">
+              <Link href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}>
+                <button className="px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 hover:border-cyan-500/50 transition-all inline-flex items-center gap-2">
+                  <Tag size={18} />
+                  <span>View All {post.category} Articles</span>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
