@@ -1,0 +1,186 @@
+========================================
+MUHAMMAD ANEES PORTFOLIO - DEPLOYMENT COMMANDS
+Repository: https://github.com/anees0005/muhammadanees
+========================================
+
+===========================================
+METHOD 1: GITHUB PAGES (RECOMMENDED)
+===========================================
+
+# Navigate to project root
+cd mujtabaahmed-main
+
+# Initialize Git
+git init
+git config user.name "Muhammad Anees"
+git config user.email "anees05it@gmail.com"
+
+# Add GitHub remote
+git remote add origin https://github.com/anees0005/muhammadanees.git
+
+# Commit all files
+git add .
+git commit -m "Initial commit: Muhammad Anees Professional Portfolio"
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
+
+# Navigate to client folder
+cd client
+
+# Install dependencies
+npm install
+
+# Install gh-pages
+npm install --save-dev gh-pages
+
+# Build and deploy to GitHub Pages
+npm run deploy
+
+# Enable GitHub Pages:
+# 1. Go to: https://github.com/anees0005/muhammadanees/settings/pages
+# 2. Source: gh-pages branch
+# 3. Save and wait 2-3 minutes
+
+# Your site will be live at:
+# https://anees0005.github.io/muhammadanees
+
+===========================================
+METHOD 2: VERCEL (EASIEST)
+===========================================
+
+# Step 1: Push to GitHub (use commands from Method 1, lines 7-19)
+
+# Step 2: Deploy via Vercel Website
+# 1. Go to https://vercel.com
+# 2. Sign in with GitHub
+# 3. Click "Add New Project"
+# 4. Import: anees0005/muhammadanees
+# 5. Root Directory: client
+# 6. Click "Deploy"
+# Done! Live at: https://muhammadanees.vercel.app
+
+# OR use Vercel CLI:
+npm install -g vercel
+cd client
+vercel login
+vercel --prod
+
+===========================================
+METHOD 3: NETLIFY
+===========================================
+
+# Step 1: Push to GitHub (use commands from Method 1, lines 7-19)
+
+# Step 2: Deploy via Netlify Website
+# 1. Go to https://netlify.com
+# 2. Sign in with GitHub
+# 3. "Add new site" → "Import project"
+# 4. Select: anees0005/muhammadanees
+# 5. Base directory: client
+# 6. Build command: npm run build
+# 7. Publish directory: client/dist
+# 8. Deploy!
+
+# OR use Netlify CLI:
+npm install -g netlify-cli
+cd client
+netlify login
+netlify init
+netlify deploy --prod --dir=dist
+
+===========================================
+UPDATING YOUR DEPLOYED SITE
+===========================================
+
+# For GitHub Pages:
+cd client
+npm run deploy
+
+# For Vercel/Netlify (auto-deploy on push):
+git add .
+git commit -m "Update portfolio"
+git push
+
+===========================================
+TESTING LOCALLY BEFORE DEPLOY
+===========================================
+
+# Install dependencies
+cd client
+npm install
+
+# Run development server
+npm run dev
+# Visit: http://localhost:5173
+
+# Build production version
+npm run build
+
+# Preview production build
+npm run preview
+# Visit: http://localhost:4173
+
+===========================================
+TROUBLESHOOTING
+===========================================
+
+# If npm install fails:
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+
+# If build fails:
+npm run build --verbose
+
+# Check for errors:
+npm run type-check
+
+# If git push fails (authentication):
+# Use personal access token from:
+# https://github.com/settings/tokens
+
+# Or use SSH:
+git remote set-url origin git@github.com:anees0005/muhammadanees.git
+
+===========================================
+VERIFY DEPLOYMENT
+===========================================
+
+After deployment, check:
+✅ Homepage loads
+✅ All sections visible
+✅ Navigation works
+✅ Typing game playable
+✅ Accounting quiz works
+✅ AI chatbot opens
+✅ WhatsApp link works
+✅ CV downloads
+✅ Mobile responsive
+✅ No console errors (F12)
+
+===========================================
+USEFUL LINKS
+===========================================
+
+GitHub Repo: https://github.com/anees0005/muhammadanees
+GitHub Pages: https://anees0005.github.io/muhammadanees
+Vercel: https://vercel.com
+Netlify: https://netlify.com
+Personal Access Token: https://github.com/settings/tokens
+
+===========================================
+CONTACT
+===========================================
+
+Muhammad Anees
+Email: anees05it@gmail.com
+WhatsApp: +92 343 3523057
+LinkedIn: https://www.linkedin.com/in/muhammad-anees-37932a356
+GitHub: https://github.com/anees0005
+
+===========================================
+END OF DEPLOYMENT COMMANDS
+===========================================
+
