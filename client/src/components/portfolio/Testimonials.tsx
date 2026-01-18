@@ -155,12 +155,10 @@ export default function Testimonials() {
                       "name": testimonial.name
                     },
                     "itemReviewed": {
-                      "@type": "Service",
-                      "name": testimonial.project || "Web Development Services",
-                      "provider": {
-                        "@type": "Person",
-                        "name": "Muhammad Anees"
-                      }
+                      "@type": "Organization",
+                      "name": "Muhammad Anees - Web Development Services",
+                      "url": "https://muhammadanees.vercel.app",
+                      "description": testimonial.project || "Professional web development and SaaS development services"
                     },
                     "reviewRating": {
                       "@type": "Rating",
