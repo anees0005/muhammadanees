@@ -146,18 +146,30 @@ export default function Testimonials() {
                 "@context": "https://schema.org",
                 "@type": "ItemList",
                 "itemListElement": testimonials.map((testimonial, index) => ({
-                  "@type": "Review",
+                  "@type": "ListItem",
                   "position": index + 1,
-                  "author": {
-                    "@type": "Person",
-                    "name": testimonial.name
-                  },
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": testimonial.rating,
-                    "bestRating": 5
-                  },
-                  "reviewBody": testimonial.content
+                  "item": {
+                    "@type": "Review",
+                    "author": {
+                      "@type": "Person",
+                      "name": testimonial.name
+                    },
+                    "itemReviewed": {
+                      "@type": "Service",
+                      "name": testimonial.project || "Web Development Services",
+                      "provider": {
+                        "@type": "Person",
+                        "name": "Muhammad Anees"
+                      }
+                    },
+                    "reviewRating": {
+                      "@type": "Rating",
+                      "ratingValue": testimonial.rating,
+                      "bestRating": 5,
+                      "worstRating": 1
+                    },
+                    "reviewBody": testimonial.content
+                  }
                 }))
               })
             }}

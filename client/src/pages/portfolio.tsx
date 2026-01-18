@@ -30,7 +30,10 @@ export default function Portfolio() {
           "@type": "Person",
           "name": "Muhammad Anees"
         },
-        "areaServed": "Worldwide",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
         "description": "Professional website development including WordPress, React, Next.js, and e-commerce solutions"
       },
       {
@@ -40,7 +43,10 @@ export default function Portfolio() {
           "@type": "Person",
           "name": "Muhammad Anees"
         },
-        "areaServed": "Worldwide",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
         "description": "Custom SaaS product development from concept to deployment"
       },
       {
@@ -50,7 +56,10 @@ export default function Portfolio() {
           "@type": "Person",
           "name": "Muhammad Anees"
         },
-        "areaServed": "Worldwide",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
         "description": "AI chatbot development, workflow automation, and business process automation"
       },
       {
@@ -60,7 +69,10 @@ export default function Portfolio() {
           "@type": "Person",
           "name": "Muhammad Anees"
         },
-        "areaServed": "Worldwide",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
         "description": "SEO optimization, social media marketing, and paid advertising campaigns"
       },
       {
@@ -70,7 +82,10 @@ export default function Portfolio() {
           "@type": "Person",
           "name": "Muhammad Anees"
         },
-        "areaServed": "Worldwide",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
         "description": "Unity and web-based game development"
       }
     ];
