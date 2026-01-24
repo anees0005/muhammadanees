@@ -131,6 +131,22 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Style select elements and options for dark theme */
+  select {
+    color: white;
+  }
+
+  select option {
+    background-color: hsl(240, 10%, 7%);
+    color: white;
+    padding: 0.5rem;
+  }
+
+  select:focus option:checked {
+    background-color: hsl(142.1, 76.2%, 36.3%);
+    color: white;
+  }
   
   .section-fade {
     opacity: 0;

@@ -84,7 +84,7 @@ export const saasProducts: SAASProduct[] = [
       'Comprehensive audit logging'
     ],
     status: 'live',
-    launchDate: '2024-01-15'
+    launchDate: '2025-12-01'
   },
   {
     id: 'expenseflow',
@@ -146,8 +146,8 @@ export const saasProducts: SAASProduct[] = [
       'Fast and responsive',
       'Export-ready reports'
     ],
-    status: 'beta',
-    launchDate: '2024-03-20'
+    status: 'live',
+    launchDate: '2025-12-01'
   },
   {
     id: 'webscoreai',
@@ -209,7 +209,7 @@ export const saasProducts: SAASProduct[] = [
       'Competitive benchmarking'
     ],
     status: 'live',
-    launchDate: '2025-01-10'
+    launchDate: '2026-01-01'
   }
 ];
 

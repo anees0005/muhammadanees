@@ -118,14 +118,20 @@ export default function TechStackRecommender() {
             <select
               value={projectType}
               onChange={(e) => setProjectType(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500/50"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500/50 appearance-none cursor-pointer"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 1rem center',
+                paddingRight: '2.5rem'
+              }}
             >
-              <option value="">Select project type</option>
-              <option value="saas">SaaS Application</option>
-              <option value="web-app">Web Application</option>
-              <option value="ecommerce">E-commerce Store</option>
-              <option value="landing">Landing Page</option>
-              <option value="api">API/Backend Service</option>
+              <option value="" className="bg-gray-900 text-white">Select project type</option>
+              <option value="saas" className="bg-gray-900 text-white">SaaS Application</option>
+              <option value="web-app" className="bg-gray-900 text-white">Web Application</option>
+              <option value="ecommerce" className="bg-gray-900 text-white">E-commerce Store</option>
+              <option value="landing" className="bg-gray-900 text-white">Landing Page</option>
+              <option value="api" className="bg-gray-900 text-white">API/Backend Service</option>
             </select>
           </div>
 
@@ -136,13 +142,19 @@ export default function TechStackRecommender() {
             <select
               value={teamSize}
               onChange={(e) => setTeamSize(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500/50"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500/50 appearance-none cursor-pointer"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 1rem center',
+                paddingRight: '2.5rem'
+              }}
             >
-              <option value="">Select team size</option>
-              <option value="solo">Solo Developer</option>
-              <option value="small">Small Team (2-5)</option>
-              <option value="medium">Medium Team (6-15)</option>
-              <option value="large">Large Team (15+)</option>
+              <option value="" className="bg-gray-900 text-white">Select team size</option>
+              <option value="solo" className="bg-gray-900 text-white">Solo Developer</option>
+              <option value="small" className="bg-gray-900 text-white">Small Team (2-5)</option>
+              <option value="medium" className="bg-gray-900 text-white">Medium Team (6-15)</option>
+              <option value="large" className="bg-gray-900 text-white">Large Team (15+)</option>
             </select>
           </div>
 
@@ -153,12 +165,18 @@ export default function TechStackRecommender() {
             <select
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500/50"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500/50 appearance-none cursor-pointer"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 1rem center',
+                paddingRight: '2.5rem'
+              }}
             >
-              <option value="">Select budget</option>
-              <option value="low">Low (Free/Low-cost tools)</option>
-              <option value="medium">Medium ($50-500/month)</option>
-              <option value="high">High ($500+/month)</option>
+              <option value="" className="bg-gray-900 text-white">Select budget</option>
+              <option value="low" className="bg-gray-900 text-white">Low (Free/Low-cost tools)</option>
+              <option value="medium" className="bg-gray-900 text-white">Medium ($50-500/month)</option>
+              <option value="high" className="bg-gray-900 text-white">High ($500+/month)</option>
             </select>
           </div>
 
