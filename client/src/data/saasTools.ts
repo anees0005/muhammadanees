@@ -88,11 +88,11 @@ export const saasProducts: SAASProduct[] = [
   },
   {
     id: 'expenseflow',
-    name: 'ExpenseFlow',
+    name: 'Expense Flow Pro',
     slug: 'expenseflow',
     tagline: 'The Expense Tracker',
-    description: 'ExpenseFlow is a modern, intuitive expense tracking application designed to help individuals and businesses manage their finances effortlessly. With smart categorization, detailed reporting, and a clean financial UI, ExpenseFlow makes expense management simple and insightful.',
-    url: 'https://expenseflow-beta.vercel.app',
+    description: 'Expense Flow Pro is a modern, intuitive expense tracking application designed to help individuals and businesses manage their finances effortlessly. With smart categorization, detailed reporting, and a clean financial UI, Expense Flow Pro makes expense management simple and insightful.',
+    url: 'https://expenseflowpro.vercel.app/',
     category: 'Finance & Accounting',
     features: [
       {
@@ -148,6 +148,68 @@ export const saasProducts: SAASProduct[] = [
     ],
     status: 'beta',
     launchDate: '2024-03-20'
+  },
+  {
+    id: 'webscoreai',
+    name: 'WebScore AI',
+    slug: 'webscoreai',
+    tagline: 'AI-Powered Website Analysis',
+    description: 'WebScore AI is an intelligent website analysis tool that provides comprehensive insights into your website\'s performance, SEO, accessibility, and user experience. Powered by advanced AI algorithms, it delivers actionable recommendations to improve your online presence and drive better results.',
+    url: 'https://webscoreai.vercel.app',
+    category: 'AI & Analytics',
+    features: [
+      {
+        title: 'AI-Powered Analysis',
+        description: 'Leverage advanced artificial intelligence to analyze your website comprehensively, identifying issues and opportunities that traditional tools might miss.'
+      },
+      {
+        title: 'SEO Score & Optimization',
+        description: 'Get detailed SEO scores with specific recommendations for improving search engine rankings, meta tags, content quality, and technical SEO factors.'
+      },
+      {
+        title: 'Performance Metrics',
+        description: 'Analyze website speed, Core Web Vitals, loading times, and performance bottlenecks with actionable insights to enhance user experience.'
+      },
+      {
+        title: 'Accessibility Audit',
+        description: 'Ensure your website is accessible to all users with comprehensive accessibility audits and WCAG compliance recommendations.'
+      },
+      {
+        title: 'Security Analysis',
+        description: 'Identify security vulnerabilities, SSL certificate issues, and potential threats to keep your website and users safe.'
+      },
+      {
+        title: 'Competitive Insights',
+        description: 'Compare your website against competitors and industry benchmarks to understand your position and identify improvement opportunities.'
+      },
+      {
+        title: 'Detailed Reports',
+        description: 'Generate comprehensive, easy-to-understand reports with visual charts, prioritized recommendations, and progress tracking over time.'
+      },
+      {
+        title: 'Real-Time Monitoring',
+        description: 'Monitor your website continuously and receive alerts when issues are detected, ensuring optimal performance at all times.'
+      }
+    ],
+    techStack: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'AI/ML Models',
+      'Web APIs',
+      'Analytics Engine'
+    ],
+    highlights: [
+      'AI-driven insights and recommendations',
+      'Comprehensive website analysis',
+      'Real-time monitoring capabilities',
+      'User-friendly interface',
+      'Actionable optimization suggestions',
+      'Competitive benchmarking'
+    ],
+    status: 'live',
+    launchDate: '2025-01-10'
   }
 ];
 

@@ -57,7 +57,7 @@ export default function Projects() {
       description: "Full-stack SaaS applications with modern architecture",
       projects: [
         { title: "CompanyHub", url: "https://companyhub.vercel.app", tech: ["Next.js", "Full-Stack SaaS", "Business Management"], isSaaS: true, slug: "companyhub" },
-        { title: "ExpenseFlow", url: "https://expenseflow-beta.vercel.app", tech: ["Next.js", "Finance SaaS", "Expense Tracking"], isSaaS: true, slug: "expenseflow" },
+        { title: "Expense Flow Pro", url: "https://expenseflowpro.vercel.app/", tech: ["Next.js", "Finance SaaS", "Expense Tracking"], isSaaS: true, slug: "expenseflow" },
       ]
     },
     {
